@@ -2,7 +2,7 @@ import model.Character
 import model.Thing
 import java.io.File
 
-class Utils {
+object Utils {
     fun findCharacter(line:String): Character?{
         if(line.contains("is Enemy",true)){
             val s = line.split(" ")

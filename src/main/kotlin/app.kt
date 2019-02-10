@@ -4,7 +4,6 @@ import java.io.File
 
 fun main(args: Array<String>){
     val file = File("src/main/resources/Input")
-    val utils = Utils()
 
     val map = HashMap<String,Character>()
     val list = ArrayList<Character>()
@@ -12,7 +11,7 @@ fun main(args: Array<String>){
     val resource = Thing(0)
 
     file.forEachLine {
-        val c = utils.findCharacter(it)
+        val c = Utils.findCharacter(it)
         if(c!=null && !map.containsValue(c)){
             if(hero==null && c.name.equals("Hero")){
                 hero = c
@@ -22,9 +21,9 @@ fun main(args: Array<String>){
     }
 
     file.forEachLine {
-        utils.findResources(it,resource)
-        utils.setCharacterStats(it, map)
-        utils.addCharacterToGame(it, list, map)
+        Utils.findResources(it,resource)
+        Utils.setCharacterStats(it, map)
+        Utils.addCharacterToGame(it, list, map)
     }
 
     list.sortBy {
@@ -32,5 +31,5 @@ fun main(args: Array<String>){
     }
 
     println("*****************************")
-    utils.journey(hero!!,resource,list)
+    Utils.journey(hero!!,resource,list)
 }
